@@ -14,12 +14,12 @@ defmodule Islands.CoordTest do
   end
 
   describe "A coord struct" do
-    test "can be encoded/decoded by Poison", %{coord: coord, json: json} do
+    test "can be encoded by Poison", %{coord: coord, json: json} do
       assert Poison.encode!(coord) == json.poison
       assert Poison.decode!(json.poison) == json.decoded
     end
 
-    test "can be encoded/decoded by Jason", %{coord: coord, json: json} do
+    test "can be encoded by Jason", %{coord: coord, json: json} do
       assert Jason.encode!(coord) == json.jason
       assert Jason.decode!(json.jason) == json.decoded
     end
