@@ -5,15 +5,23 @@ defmodule Islands.CoordTest do
 
   doctest Coord
 
+  setup_all do
+    {:ok, coord} = Coord.new(1, 10)
+    poison = ~s<{\"row\":1,\"col\":10}>
+    jason = ~s<{\"col\":10,\"row\":1}>
+    decoded = %{"col" => 10, "row" => 1}
+    {:ok, json: %{poison: poison, jason: jason, decoded: decoded}, coord: coord}
+  end
+
   describe "A coord struct" do
-    test "can be encoded by Poison" do
-      {:ok, coord} = Coord.new(1, 10)
-      assert Poison.encode!(coord) == ~s<{\"row\":1,\"col\":10}>
+    test "can be encoded/decoded by Poison", %{coord: coord, json: json} do
+      assert Poison.encode!(coord) == json.poison
+      assert Poison.decode!(json.poison) == json.decoded
     end
 
-    test "can be encoded by Jason" do
-      {:ok, coord} = Coord.new(1, 10)
-      assert Jason.encode!(coord) == ~s<{\"col\":10,\"row\":1}>
+    test "can be encoded/decoded by Jason", %{coord: coord, json: json} do
+      assert Jason.encode!(coord) == json.jason
+      assert Jason.decode!(json.jason) == json.decoded
     end
   end
 
