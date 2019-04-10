@@ -13,6 +13,8 @@ defmodule Islands.Coord do
 
   alias __MODULE__
 
+  @coord_range 1..10
+
   @derive [Poison.Encoder]
   @derive Jason.Encoder
   @enforce_keys [:row, :col]
@@ -22,10 +24,8 @@ defmodule Islands.Coord do
   @type row :: 1..10
   @type t :: %Coord{row: row, col: col}
 
-  @board_range Application.get_env(@app, :board_range)
-
   @spec new(row, col) :: {:ok, t} | {:error, atom}
-  def new(row, col) when row in @board_range and col in @board_range do
+  def new(row, col) when row in @coord_range and col in @coord_range do
     {:ok, %Coord{row: row, col: col}}
   end
 
