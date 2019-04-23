@@ -4,7 +4,7 @@ defmodule Islands.Coord.MixProject do
   def project do
     [
       app: :islands_coord,
-      version: "0.1.5",
+      version: "0.1.6",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       name: "Islands Coord",
@@ -46,7 +46,7 @@ defmodule Islands.Coord.MixProject do
     [
       {:mix_tasks,
        github: "RaymondLoranger/mix_tasks", only: :dev, runtime: false},
-      {:poison, "~> 4.0"},
+      {:poison, "~> 3.0"},
       {:jason, "~> 1.0"},
       {:persist_config, "~> 0.1"},
       {:earmark, "~> 1.0", only: :dev},
