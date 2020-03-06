@@ -29,5 +29,5 @@ defmodule Islands.Coord do
     {:ok, %Coord{row: row, col: col}}
   end
 
-  def new(_row, _col), do: {:error, :invalid_coordinate}
+  def new(_row, _col), do: {:error, :invalid_coordinates}
 end

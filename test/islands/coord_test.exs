@@ -31,9 +31,9 @@ defmodule Islands.CoordTest do
     end
 
     test "returns {:error, ...} given invalid args" do
-      assert Coord.new(0, 10) == {:error, :invalid_coordinate}
-      assert Coord.new(-1, 2) == {:error, :invalid_coordinate}
-      assert Coord.new("1", "2") == {:error, :invalid_coordinate}
+      assert Coord.new(0, 10) == {:error, :invalid_coordinates}
+      assert Coord.new(-1, 2) == {:error, :invalid_coordinates}
+      assert Coord.new("1", "2") == {:error, :invalid_coordinates}
     end
   end
 end
