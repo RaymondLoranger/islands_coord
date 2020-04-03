@@ -22,6 +22,7 @@ defmodule Islands.Coord do
 
   @type col :: 1..10
   @type row :: 1..10
+  @type square :: 1..100
   @type t :: %Coord{row: row, col: col}
 
   @spec new(row, col) :: {:ok, t} | {:error, atom}
@@ -30,4 +31,12 @@ defmodule Islands.Coord do
   end
 
   def new(_row, _col), do: {:error, :invalid_coordinates}
+
+  @spec to_square(Coord.t()) :: square | {:error, atom}
+  def to_square(%Coord{row: row, col: col} = _coord), do: (row - 1) * 10 + col
+  def to_square(_coord), do: {:error, :invalid_coordinates}
+
+  @spec to_row_col(Coord.t()) :: String.t() | {:error, atom}
+  def to_row_col(%Coord{row: row, col: col} = _coord), do: "#{row} #{col}"
+  def to_row_col(_coord), do: {:error, :invalid_coordinates}
 end
