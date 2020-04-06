@@ -45,6 +45,20 @@ defmodule Islands.CoordTest do
     end
   end
 
+  describe "Coord.new/1" do
+    test "returns {:ok, ...} given valid args" do
+      assert Coord.new(1) == {:ok, %Coord{row: 1, col: 1}}
+      assert Coord.new(27) == {:ok, %Coord{row: 3, col: 7}}
+      assert Coord.new(30) == {:ok, %Coord{row: 3, col: 10}}
+    end
+
+    test "returns {:error, ...} given invalid args" do
+      assert Coord.new(0) == {:error, :invalid_square_number}
+      assert Coord.new(101) == {:error, :invalid_square_number}
+      assert Coord.new("100") == {:error, :invalid_square_number}
+    end
+  end
+
   describe "Coord.to_square/1" do
     test "returns a 'square' number given valid args", %{squares: squares} do
       assert Coord.to_square(squares.sq_1_1) == 1
