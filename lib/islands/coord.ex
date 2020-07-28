@@ -4,7 +4,7 @@
 defmodule Islands.Coord do
   use PersistConfig
 
-  @book_ref Application.get_env(@app, :book_ref)
+  @book_ref get_env(:book_ref)
 
   @moduledoc """
   Creates a `coord` struct for the _Game of Islands_.

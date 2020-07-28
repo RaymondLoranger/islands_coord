@@ -12,7 +12,7 @@ by adding `islands_coord` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:islands_coord, "~> 0.1.0"}
+    {:islands_coord, "~> 0.1"}
   ]
 end
 ```

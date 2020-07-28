@@ -15,10 +15,11 @@ defmodule Islands.CoordTest do
     jason = ~s<{"col":10,"row":1}>
     decoded = %{"col" => 10, "row" => 1}
 
-    {:ok,
-     coord: coord,
-     json: %{poison: poison, jason: jason, decoded: decoded},
-     squares: %{sq_1_1: sq_1_1, sq_4_7: sq_4_7, sq_10_10: sq_10_10}}
+    %{
+      coord: coord,
+      json: %{poison: poison, jason: jason, decoded: decoded},
+      squares: %{sq_1_1: sq_1_1, sq_4_7: sq_4_7, sq_10_10: sq_10_10}
+    }
   end
 
   describe "A coord struct" do

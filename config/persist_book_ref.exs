@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :islands_coord,
   book_ref:
