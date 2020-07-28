@@ -21,7 +21,7 @@ defmodule Islands.Coord.MixProject do
 
   defp description do
     """
-    Creates a coordinate struct for the Game of Islands.
+    Creates a coordinates struct for the Game of Islands.
     """
   end
 
