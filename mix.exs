@@ -4,7 +4,7 @@ defmodule Islands.Coord.MixProject do
   def project do
     [
       app: :islands_coord,
-      version: "0.1.11",
+      version: "0.1.12",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       name: "Islands Coord",
@@ -27,7 +27,7 @@ defmodule Islands.Coord.MixProject do
 
   defp package do
     [
-      files: ["lib", "mix.exs", "README*", "config/persist*.exs"],
+      files: ["lib", "mix.exs", "README*"],
       maintainers: ["Raymond Loranger"],
       licenses: ["MIT"],
       links: %{"GitHub" => source_url()}
@@ -48,7 +48,7 @@ defmodule Islands.Coord.MixProject do
        github: "RaymondLoranger/mix_tasks", only: :dev, runtime: false},
       {:ex_doc, "~> 0.22", only: :dev, runtime: false},
       {:dialyxir, "~> 1.0", only: :dev, runtime: false},
-      {:persist_config, "~> 0.4", runtime: false},
+      {:islands_config, "~> 0.1", runtime: false},
       {:poison, "~> 3.1"},
       {:jason, "~> 1.0"}
     ]
