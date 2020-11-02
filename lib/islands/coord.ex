@@ -34,11 +34,11 @@ defmodule Islands.Coord do
 
   @spec to_square(Coord.t()) :: square | {:error, atom}
   def to_square(%Coord{row: row, col: col} = _coord), do: (row - 1) * 10 + col
-  def to_square(_coord), do: {:error, :invalid_coordinates}
+  def to_square(_coord), do: {:error, :invalid_coord_struct}
 
   @spec to_row_col(Coord.t()) :: String.t() | {:error, atom}
   def to_row_col(%Coord{row: row, col: col} = _coord), do: "#{row} #{col}"
-  def to_row_col(_coord), do: {:error, :invalid_coordinates}
+  def to_row_col(_coord), do: {:error, :invalid_coord_struct}
 
   # Private functions
 

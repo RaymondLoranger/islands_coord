@@ -68,9 +68,9 @@ defmodule Islands.CoordTest do
     end
 
     test "returns {:error, ...} given invalid args" do
-      assert Coord.to_square({1, 1}) == {:error, :invalid_coordinates}
-      assert Coord.to_square([4, 7]) == {:error, :invalid_coordinates}
-      assert Coord.to_square("10, 10") == {:error, :invalid_coordinates}
+      assert Coord.to_square({1, 1}) == {:error, :invalid_coord_struct}
+      assert Coord.to_square([4, 7]) == {:error, :invalid_coord_struct}
+      assert Coord.to_square("10, 10") == {:error, :invalid_coord_struct}
     end
   end
 
@@ -82,9 +82,9 @@ defmodule Islands.CoordTest do
     end
 
     test "returns {:error, ...} given invalid args" do
-      assert Coord.to_row_col({1, 1}) == {:error, :invalid_coordinates}
-      assert Coord.to_row_col([4, 7]) == {:error, :invalid_coordinates}
-      assert Coord.to_row_col("10, 10") == {:error, :invalid_coordinates}
+      assert Coord.to_row_col({1, 1}) == {:error, :invalid_coord_struct}
+      assert Coord.to_row_col([4, 7]) == {:error, :invalid_coord_struct}
+      assert Coord.to_row_col("10, 10") == {:error, :invalid_coord_struct}
     end
   end
 end
