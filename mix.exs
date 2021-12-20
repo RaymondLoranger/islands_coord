@@ -4,7 +4,7 @@ defmodule Islands.Coord.MixProject do
   def project do
     [
       app: :islands_coord,
-      version: "0.1.18",
+      version: "0.1.19",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       name: "Islands Coord",
@@ -21,7 +21,7 @@ defmodule Islands.Coord.MixProject do
 
   defp description do
     """
-    Creates a coordinates struct for the Game of Islands.
+    A coordinates struct and functions for the Game of Islands.
     """
   end
 
@@ -47,7 +47,7 @@ defmodule Islands.Coord.MixProject do
       {:dialyxir, "~> 1.0", only: :dev, runtime: false},
       {:ex_doc, "~> 0.22", only: :dev, runtime: false},
       {:jason, "~> 1.0"},
-      {:poison, "~> 4.0"}
+      {:poison, "~> 5.0"}
     ]
   end
 end
