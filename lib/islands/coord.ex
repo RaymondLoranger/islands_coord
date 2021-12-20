@@ -5,6 +5,9 @@ defmodule Islands.Coord do
   @moduledoc """
   A `coord` struct and functions for the _Game of Islands_.
 
+  The `coord` struct contains the fields row and col representing the
+  coordinates of a square in the _Game of Islands_.
+
   ##### Based on the book [Functional Web Development](https://pragprog.com/book/lhelph/functional-web-development-with-elixir-otp-and-phoenix) by Lance Halvorsen.
   """
 
@@ -52,6 +55,10 @@ defmodule Islands.Coord do
       iex> alias Islands.Coord
       iex> Coord.new!(10, 10)
       %Islands.Coord{row: 10, col: 10}
+
+      iex> alias Islands.Coord
+      iex> Coord.new!(0, 1)
+      ** (ArgumentError) cannot create coord, reason: :invalid_coordinates
   """
   @spec new!(row, col) :: t
   def new!(row, col) do
@@ -87,6 +94,10 @@ defmodule Islands.Coord do
       iex> alias Islands.Coord
       iex> Coord.new!(99)
       %Islands.Coord{row: 10, col: 9}
+
+      iex> alias Islands.Coord
+      iex> Coord.new!(101)
+      ** (ArgumentError) cannot create coord, reason: :invalid_square_number
   """
   @spec new!(square) :: t
   def new!(square) do
