@@ -51,7 +51,7 @@ defmodule Islands.CoordTest do
   end
 
   describe "Coord.new!/2" do
-    test "returns a coord given valid args" do
+    test "returns a coord struct given valid args" do
       assert Coord.new!(1, 10) == %Coord{row: 1, col: 10}
     end
 
@@ -77,7 +77,7 @@ defmodule Islands.CoordTest do
   end
 
   describe "Coord.new!/1" do
-    test "returns a coord given valid args" do
+    test "returns a coord struct given valid args" do
       assert Coord.new!(98) == %Coord{row: 10, col: 8}
     end
 
