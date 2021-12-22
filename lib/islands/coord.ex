@@ -4,9 +4,10 @@
 defmodule Islands.Coord do
   @coord "[`coord`](`t:Islands.Coord.t/0`)"
   @square "[`square`](`t:square/0`)"
+  @readme "https://github.com/RaymondLoranger/islands_vue_client#readme"
 
   @moduledoc """
-  A #{@coord} struct and functions for the _Game of Islands_.
+  A #{@coord} struct and functions for the [Game of Islands](#{@readme}).
 
   The #{@coord} struct contains the fields row and col representing the
   coordinates of a square in the _Game of Islands_.
