@@ -2,10 +2,13 @@
 # │ Based on the book "Functional Web Development" by Lance Halvorsen. │
 # └────────────────────────────────────────────────────────────────────┘
 defmodule Islands.Coord do
-  @moduledoc """
-  A `coord` struct and functions for the _Game of Islands_.
+  @coord "[`coord`](`t:Islands.Coord.t/0`)"
+  @square "[`square`](`t:square/0`)"
 
-  The `coord` struct contains the fields row and col representing the
+  @moduledoc """
+  A #{@coord} struct and functions for the _Game of Islands_.
+
+  The #{@coord} struct contains the fields row and col representing the
   coordinates of a square in the _Game of Islands_.
 
   ##### Based on the book [Functional Web Development](https://pragprog.com/book/lhelph/functional-web-development-with-elixir-otp-and-phoenix) by Lance Halvorsen.
@@ -28,17 +31,18 @@ defmodule Islands.Coord do
   @type row :: 1..10
   @typedoc "Square number: (row - 1) * 10 + col"
   @type square :: 1..100
+  @typedoc "A coordinates struct for the Game of Islands"
   @type t :: %Coord{row: row, col: col}
 
   @doc """
-  Returns `{:ok, coord}` or `{:error, reason}`
-  if given an invalid `row` or `col`.
+  Returns `{:ok, coord}` or `{:error, reason}` if given an invalid `row` or
+  `col`.
 
   ## Examples
 
       iex> alias Islands.Coord
       iex> Coord.new(10, 10)
-      {:ok, %Islands.Coord{col: 10, row: 10}}
+      {:ok, %Coord{col: 10, row: 10}}
   """
   @spec new(row, col) :: {:ok, t} | {:error, atom}
   def new(row, col) when row in @row_range and col in @col_range do
@@ -48,13 +52,13 @@ defmodule Islands.Coord do
   def new(_row, _col), do: {:error, :invalid_coordinates}
 
   @doc """
-  Returns a `coord` struct or raises if given an invalid `row` or `col`.
+  Returns a #{@coord} struct or raises if given an invalid `row` or `col`.
 
   ## Examples
 
       iex> alias Islands.Coord
       iex> Coord.new!(10, 10)
-      %Islands.Coord{row: 10, col: 10}
+      %Coord{row: 10, col: 10}
 
       iex> alias Islands.Coord
       iex> Coord.new!(0, 1)
@@ -78,7 +82,7 @@ defmodule Islands.Coord do
 
       iex> alias Islands.Coord
       iex> Coord.new(99)
-      {:ok, %Islands.Coord{row: 10, col: 9}}
+      {:ok, %Coord{row: 10, col: 9}}
   """
   @spec new(square) :: {:ok, t} | {:error, atom}
   def new(square) when square in @square_range,
@@ -87,13 +91,13 @@ defmodule Islands.Coord do
   def new(_square), do: {:error, :invalid_square_number}
 
   @doc """
-  Returns a `coord` struct or raises if given an invalid `square`.
+  Returns a #{@coord} struct or raises if given an invalid `square`.
 
   ## Examples
 
       iex> alias Islands.Coord
       iex> Coord.new!(99)
-      %Islands.Coord{row: 10, col: 9}
+      %Coord{row: 10, col: 9}
 
       iex> alias Islands.Coord
       iex> Coord.new!(101)
@@ -111,7 +115,7 @@ defmodule Islands.Coord do
   end
 
   @doc """
-  Returns a `square` number or `{:error, reason}` if given an invalid `coord`.
+  Returns a #{@square} number or `{:error, reason}` if given an invalid `coord`.
 
   ## Examples
 
@@ -139,7 +143,7 @@ defmodule Islands.Coord do
   def to_row_col(_coord), do: {:error, :invalid_coord_struct}
 
   @doc """
-  Compares two `coord` structs based on their [square](`t:square/0`) numbers.
+  Compares two #{@coord} structs based on their #{@square} numbers.
 
   ## Examples
       iex> alias Islands.Coord
