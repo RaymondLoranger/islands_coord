@@ -3,9 +3,9 @@
 # └────────────────────────────────────────────────────────────────────┘
 defmodule Islands.Coord do
   @moduledoc """
-  A _coord_ struct and functions for the _Game of Islands_.
+  A coordinates struct and functions for the _Game of Islands_.
 
-  The _coord_ struct contains the fields _row_ and _col_ representing the
+  The coordinates struct contains the fields `row` and `col` representing the
   coordinates of a square in the _Game of Islands_.
 
   ##### Based on the book [Functional Web Development](https://pragprog.com/book/lhelph/functional-web-development-with-elixir-otp-and-phoenix) by Lance Halvorsen.
@@ -49,7 +49,7 @@ defmodule Islands.Coord do
   def new(_row, _col), do: {:error, :invalid_coordinates}
 
   @doc """
-  Returns a _coord_ struct or raises if given an invalid `row` or `col`.
+  Returns a coordinates struct or raises if given an invalid `row` or `col`.
 
   ## Examples
 
@@ -88,7 +88,7 @@ defmodule Islands.Coord do
   def new(_square), do: {:error, :invalid_square_number}
 
   @doc """
-  Returns a _coord_ struct or raises if given an invalid `square`.
+  Returns a coordinates struct or raises if given an invalid `square`.
 
   ## Examples
 
@@ -112,7 +112,7 @@ defmodule Islands.Coord do
   end
 
   @doc """
-  Returns a _square_ number or `{:error, reason}` if given an invalid `coord`.
+  Returns a square number or `{:error, reason}` if given an invalid `coord`.
 
   ## Examples
 
@@ -140,7 +140,7 @@ defmodule Islands.Coord do
   def to_row_col(_coord), do: {:error, :invalid_coord_struct}
 
   @doc """
-  Compares two _coord_ structs based on their _square_ numbers.
+  Compares two coordinates structs based on their square numbers.
 
   ## Examples
       iex> alias Islands.Coord

@@ -22,7 +22,7 @@ defmodule Islands.CoordTest do
     }
   end
 
-  describe "A coord struct" do
+  describe "A coordinates struct" do
     test "can be encoded by Poison", %{coord: coord, json: json} do
       assert Poison.encode!(coord) == json.poison
       assert Poison.decode!(json.poison) == json.decoded
@@ -51,7 +51,7 @@ defmodule Islands.CoordTest do
   end
 
   describe "Coord.new!/2" do
-    test "returns a coord struct given valid args" do
+    test "returns a coordinates struct given valid args" do
       assert Coord.new!(1, 10) == %Coord{row: 1, col: 10}
     end
 
@@ -77,7 +77,7 @@ defmodule Islands.CoordTest do
   end
 
   describe "Coord.new!/1" do
-    test "returns a coord struct given valid args" do
+    test "returns a coordinates struct given valid args" do
       assert Coord.new!(98) == %Coord{row: 10, col: 8}
     end
 
@@ -117,7 +117,7 @@ defmodule Islands.CoordTest do
   end
 
   describe "Coord.compare/2" do
-    test "compares two coord structs", %{squares: squares} do
+    test "compares two coordinates structs", %{squares: squares} do
       assert Coord.compare(squares.sq_1_1, squares.sq_4_7) == :lt
       assert Coord.compare(squares.sq_10_10, squares.sq_4_7) == :gt
       assert Coord.compare(squares.sq_4_7, Coord.new!(4, 7)) == :eq
