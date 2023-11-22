@@ -11,23 +11,17 @@ defmodule Islands.CoordTest do
     {:ok, sq_10_10} = Coord.new(10, 10)
 
     {:ok, coord} = Coord.new(1, 10)
-    poison = ~s<{"row":1,"col":10}>
-    jason = ~s<{"col":10,"row":1}>
+    jason = ~s<{"row":1,"col":10}>
     decoded = %{"col" => 10, "row" => 1}
 
     %{
       coord: coord,
-      json: %{poison: poison, jason: jason, decoded: decoded},
+      json: %{jason: jason, decoded: decoded},
       squares: %{sq_1_1: sq_1_1, sq_4_7: sq_4_7, sq_10_10: sq_10_10}
     }
   end
 
   describe "A coordinates struct" do
-    test "can be encoded by Poison", %{coord: coord, json: json} do
-      assert Poison.encode!(coord) == json.poison
-      assert Poison.decode!(json.poison) == json.decoded
-    end
-
     test "can be encoded by Jason", %{coord: coord, json: json} do
       assert Jason.encode!(coord) == json.jason
       assert Jason.decode!(json.jason) == json.decoded

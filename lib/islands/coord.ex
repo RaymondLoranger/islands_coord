@@ -17,7 +17,6 @@ defmodule Islands.Coord do
   @row_range 1..10
   @square_range 1..100
 
-  @derive [Poison.Encoder]
   @derive Jason.Encoder
   @enforce_keys [:row, :col]
   defstruct [:row, :col]
