@@ -157,9 +157,12 @@ defmodule Islands.Coord do
 
   ## Private functions
 
+  # coord(0, 20) # => new(2, 10)
+  # coord(9, 19) # => new(2, 9)
+
   @spec coord(rem :: 0..9, square) :: {:ok, t}
-  defp coord(0, square), do: Coord.new(div(square, 10), 10)
-  defp coord(rem, square), do: Coord.new(div(square, 10) + 1, rem)
+  defp coord(0, square), do: new(div(square, 10), 10)
+  defp coord(rem, square), do: new(div(square, 10) + 1, rem)
 
   ## Helpers
 
