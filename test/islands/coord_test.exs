@@ -11,20 +11,20 @@ defmodule Islands.CoordTest do
     {:ok, sq_10_10} = Coord.new(10, 10)
 
     {:ok, coord} = Coord.new(1, 10)
-    jason = ~s<{"row":1,"col":10}>
+    encoded = ~s<{"row":1,"col":10}>
     decoded = %{"col" => 10, "row" => 1}
 
     %{
       coord: coord,
-      json: %{jason: jason, decoded: decoded},
+      json: %{encoded: encoded, decoded: decoded},
       squares: %{sq_1_1: sq_1_1, sq_4_7: sq_4_7, sq_10_10: sq_10_10}
     }
   end
 
   describe "A coordinates struct" do
-    test "can be encoded by Jason", %{coord: coord, json: json} do
-      assert Jason.encode!(coord) == json.jason
-      assert Jason.decode!(json.jason) == json.decoded
+    test "can be encoded by JSON", %{coord: coord, json: json} do
+      assert JSON.encode!(coord) == json.encoded
+      assert JSON.decode!(json.encoded) == json.decoded
     end
 
     test "supports string interpolation", %{coord: coord} do
