@@ -79,6 +79,10 @@ defmodule Islands.Coord do
       iex> alias Islands.Coord
       iex> Coord.new(99)
       {:ok, %Coord{row: 10, col: 9}}
+
+      iex> alias Islands.Coord
+      iex> Coord.new(0)
+      {:error, :invalid_square_number}
   """
   @spec new(square) :: {:ok, t} | {:error, atom}
   def new(square) when square in @square_range,
@@ -119,6 +123,10 @@ defmodule Islands.Coord do
       iex> {:ok, coord} = Coord.new(2, 9)
       iex> Coord.to_square(coord)
       19
+
+      iex> alias Islands.Coord
+      iex> Coord.to_square({1, 2})
+      {:error, :invalid_coord_struct}
   """
   @spec to_square(Coord.t()) :: square | {:error, atom}
   def to_square(%Coord{row: row, col: col} = _coord), do: (row - 1) * 10 + col
@@ -133,6 +141,10 @@ defmodule Islands.Coord do
       iex> {:ok, coord} = Coord.new(2, 9)
       iex> Coord.to_row_col(coord)
       "2 9"
+
+      iex> alias Islands.Coord
+      iex> Coord.to_row_col({1, 2})
+      {:error, :invalid_coord_struct}
   """
   @spec to_row_col(Coord.t()) :: String.t() | {:error, atom}
   def to_row_col(%Coord{row: row, col: col} = _coord), do: "#{row} #{col}"
