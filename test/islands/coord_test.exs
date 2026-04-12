@@ -51,7 +51,7 @@ defmodule Islands.CoordTest do
 
     test "raises given invalid args" do
       assert_raise ArgumentError,
-                   "cannot create coord, reason: invalid_coordinates",
+                   "cannot create coord, reason: :invalid_coordinates",
                    fn -> Coord.new!(0, 10) end
     end
   end
@@ -77,7 +77,7 @@ defmodule Islands.CoordTest do
 
     test "raises given invalid args" do
       assert_raise ArgumentError,
-                   "cannot create coord, reason: invalid_square_number",
+                   "cannot create coord, reason: :invalid_square_number",
                    fn -> Coord.new!(101) end
     end
   end

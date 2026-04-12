@@ -58,7 +58,7 @@ defmodule Islands.Coord do
 
       iex> alias Islands.Coord
       iex> Coord.new!(0, 1)
-      ** (ArgumentError) cannot create coord, reason: invalid_coordinates
+      ** (ArgumentError) cannot create coord, reason: :invalid_coordinates
   """
   @spec new!(row, col) :: t
   def new!(row, col) do
@@ -67,7 +67,7 @@ defmodule Islands.Coord do
         coord
 
       {:error, reason} ->
-        raise ArgumentError, "cannot create coord, reason: #{reason}"
+        raise ArgumentError, "cannot create coord, reason: #{inspect(reason)}"
     end
   end
 
@@ -97,7 +97,7 @@ defmodule Islands.Coord do
 
       iex> alias Islands.Coord
       iex> Coord.new!(101)
-      ** (ArgumentError) cannot create coord, reason: invalid_square_number
+      ** (ArgumentError) cannot create coord, reason: :invalid_square_number
   """
   @spec new!(square) :: t
   def new!(square) do
@@ -106,7 +106,7 @@ defmodule Islands.Coord do
         coord
 
       {:error, reason} ->
-        raise ArgumentError, "cannot create coord, reason: #{reason}"
+        raise ArgumentError, "cannot create coord, reason: #{inspect(reason)}"
     end
   end
 
