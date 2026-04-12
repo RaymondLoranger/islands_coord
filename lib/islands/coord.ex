@@ -39,6 +39,10 @@ defmodule Islands.Coord do
       iex> alias Islands.Coord
       iex> Coord.new(10, 10)
       {:ok, %Coord{col: 10, row: 10}}
+
+      iex> alias Islands.Coord
+      iex> Coord.new(0, 10)
+      {:error, :invalid_coordinates}
   """
   @spec new(row, col) :: {:ok, t} | {:error, atom}
   def new(row, col) when row in @row_range and col in @col_range do
