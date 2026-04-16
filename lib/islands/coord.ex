@@ -5,8 +5,12 @@ defmodule Islands.Coord do
   @moduledoc """
   A coordinates struct and functions for the _Game of Islands_.
 
-  The coordinates struct contains the fields `row` and `col` representing the
-  coordinates of a square in the _Game of Islands_.
+  The coordinates struct contains the fields
+
+    - `row`
+    - `col`
+
+  representing the coordinates of a square in the _Game of Islands_.
 
   ##### Based on the book [Functional Web Development](https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/) by Lance Halvorsen.
   """
